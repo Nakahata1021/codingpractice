@@ -224,6 +224,22 @@ h4 {
     object-fit: cover; 
 }
 
+.info {
+    display: flex;
+    align-items: center; /* 縦方向の中央揃え */
+    justify-content: center; /* 横方向の中央揃え */
+    gap: 5px; /* アイコンとテキストの間隔 */
+}
+
+.info i {
+    font-size: 18px; /* アイコンのサイズ */
+}
+  
+.info p {
+    margin: 0; /* 余白をリセット */
+    font-size: 18px; /* テキストサイズ */
+}
+
 /* 写真大きさ調整 */
 .circle1 circle2, .circle3, .circle4 {
     width: 100px;
@@ -235,4 +251,91 @@ h4 {
     padding: 20px 0;
     text-align: center; 
     line-height: 2.5;
+}
+
+.uniform-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.store-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.address-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.address-section .address-text {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+}
+
+.address-section img {
+    flex: 1 1 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .uniform-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .address-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .address-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .food-item {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .food-item img {
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .food-item p {
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .circle-gallery {
+        display: none !important;
+    }
 }
