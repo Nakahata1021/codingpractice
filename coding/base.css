@@ -334,8 +334,14 @@ h4 {
     }
 }
 
-@media (max-width: 768px) {
-    .circle-gallery {
+@media (max-width: 576px) {
+    body .circle-gallery {
+        display: none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    body h4.fade-in {
         display: none !important;
     }
 }
