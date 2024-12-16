@@ -95,6 +95,36 @@ form {
     object-fit: cover;
 }
 
+/* スマホ画面時（1枚ずつ表示） */
+@media (max-width: 567px) {
+    .carousel-inner {
+      height: 300px; /* スマホでは高さを調整 */
+    }
+  
+    .carousel-item .row {
+      display: block; /* スマホでは縦並び */
+    }
+  
+    .carousel-item .col-md-6 {
+      width: 100%; /* スマホでは1列 */
+    }
+  }
+  
+  /* PC画面時（2枚並べる） */
+  @media (min-width: 768px) {
+    .carousel-item .row {
+      display: flex; /* 2枚横並び */
+    }
+  
+    .carousel-item .col-md-6 {
+      width: 50%; /* 2枚表示のため50%ずつ */
+    }
+  
+    .carousel-inner {
+      height: 600px; /* 高さを設定 */
+    }
+  }
+
 /* 案内の見出し調整 */
 .text1-center {
     width: 100%;  
@@ -106,7 +136,7 @@ form {
 .accordion-body {
     opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.5s ease, transform 0.4s ease;
     font-size: 20px; 
     line-height: 2.5;
 }
@@ -122,9 +152,25 @@ form {
     border-radius: 5px;
 }
 
+.accordion-collapse.show {
+    background-color: #FFEFD5; /* ここで希望する背景色を指定 */
+    transition: background-color 0.3s ease; /* 背景色の変更にアニメーションを追加 */
+}
+
 .accordion-header .accordion-button {
     background-color: transparent; 
     border: none; 
+}
+
+.accordion-body li {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.accordion-body li.animate {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* Signature Foodスタイル調整 */
@@ -147,7 +193,7 @@ h3 {
 /* 紹介の写真調整 */
 .food-item {
     display: flex; 
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 20px; 
     gap: 20px;           
 }
@@ -164,7 +210,7 @@ h3 {
 
 /* アニメーション設定 */
 .fade-in {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
@@ -253,6 +299,11 @@ h4 {
     line-height: 2.5;
 }
 
+.footer-links a {
+    color: black;
+    text-decoration: none;
+}
+
 .uniform-img {
     max-width: 100%;
     height: auto;
@@ -281,7 +332,7 @@ h4 {
     height: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
     body {
         font-size: 14px;
     }
@@ -293,10 +344,6 @@ h4 {
     header {
         flex-direction: column;
         align-items: center;
-    }
-
-    .nav {
-        flex-wrap: wrap;
     }
 
     .carousel-item img {
@@ -319,13 +366,18 @@ h4 {
     }
 
     .food-item {
-        flex-direction: column !important;
-        text-align: center;
+        display: flex; /* Flexboxを有効化 */
+    flex-direction: column !important; /* 縦並び */
+    align-items: center; /* 子要素を水平方向に中央揃え */
+    justify-content: center; /* 子要素を垂直方向に中央揃え（必要に応じて） */
+    text-align: center; /* テキスト要素を中央揃え */
     }
 
-    .food-item img {
-        margin-bottom: 10px;
-        max-width: 100%;
+    .uniform-img {
+        display: block; /* 画像をブロック要素として扱う */
+    margin: 0 auto; /* 左右の余白を自動調整して中央揃え */
+    max-width: 100%; /* 親要素の幅を超えないようにする */
+    height: auto; /* 縦横比を保つ */ 
     }
 
     .food-item p {
@@ -345,3 +397,65 @@ h4 {
         display: none !important;
     }
 }
+
+/* 初期状態ではメニューを隠す */
+@media (max-width: 576px) {
+.navbar-collapse {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease-out;
+}
+
+/* 展開時のアニメーション */
+.navbar-collapse.show {
+    max-height: 500px; /* 最大高さを適当に設定（項目数に応じて調整） */
+}
+
+/* メニュー項目のアニメーション */
+.navbar-nav .nav-item {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* メニューが展開されるときに項目が表示される */
+.navbar-collapse.show .navbar-nav .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+.accordion-button:active,
+.accordion-button:focus {
+    background-color: transparent !important;  /* クリックやフォーカス時の背景色を透明に */
+    box-shadow: none !important;  /* クリック時の青い枠線を削除 */
+    border-color: transparent !important;  /* 枠線を透明に */
+}
+
+/* アクティブ時、フォーカス時の文字色を変更しない */
+.accordion-button:active,
+.accordion-button:focus,
+.accordion-button:focus-visible {
+    color: inherit !important; /* 文字色を親要素の色に保持 */
+    text-decoration: none !important;  /* 文字の下線を削除 */
+}
+
+/* アコーディオンアイテムの枠線を消す */
+.accordion-item {
+    border: none !important; /* 枠線を消す */
+  }
+  
+  /* アコーディオンボディの背景を透明にする */
+  .accordion-body {
+    background-color: transparent !important; /* 背景色を透明にする */
+  }
+  
+  /* アコーディオンボタンの枠線を消す */
+  .accordion-button {
+    border: none !important; /* ボタン周りの枠線を消す */
+  }
+  
+  /* 展開時のアコーディオンの枠線を消す */
+  .accordion-collapse {
+    border: none !important; /* アコーディオンの内容部分の枠線を消す */
+  }
