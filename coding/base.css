@@ -1,0 +1,461 @@
+@charset "UTF-8";
+/* reset */
+body, h1, h2, h3, h4, h5, h6, p, address,
+ul, ol, li, dl, dt, dd, img, form, table, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+textarea { font-size: 100%; vertical-align:middle;}
+img { border-style: none; display: block; }
+hr { display: none; }
+em{font-style: normal}
+input{line-height:auto;vertical-align:middle;}
+strong.more{color:#c30}
+a{text-decoration: none;}
+
+
+body {
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* headerの親要素の調整 */
+header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* containerのスタイル */
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Casteriaのh1調整 */
+h1 {
+    margin: 0; 
+    font-size: 1.75rem; 
+    text-align: left; 
+}
+
+
+/* ulのスタイル */
+.nav {
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* 各リンクのスタイル */
+.nav-link {
+    text-decoration: none; /
+    padding: 0 15px; 
+    font-size: 1rem;
+    color: #333; 
+}
+
+/* 検索フォームの親要素の調整 */
+form {
+    display: flex;
+    align-items: center;
+}
+
+/* 検索ボタンのスタイル */
+.form-control {
+    border-radius: 20px; 
+    padding: 10px; 
+    width: 200px;
+}
+
+/* 検索ボタンのカスタマイズ */
+.btn-outline-primary {
+    border-radius: 20px; 
+    padding: 10px 15px;
+}
+
+/* スライドの写真サイズ統一 */
+.carousel-item img {
+    height: 600px; 
+    width: 100%; 
+    object-fit: cover;
+}
+
+/* スマホ画面時（1枚ずつ表示） */
+@media (max-width: 567px) {
+    .carousel-inner {
+      height: 300px; /* スマホでは高さを調整 */
+    }
+  
+    .carousel-item .row {
+      display: block; /* スマホでは縦並び */
+    }
+  
+    .carousel-item .col-md-6 {
+      width: 100%; /* スマホでは1列 */
+    }
+  }
+  
+  /* PC画面時（2枚並べる） */
+  @media (min-width: 768px) {
+    .carousel-item .row {
+      display: flex; /* 2枚横並び */
+    }
+  
+    .carousel-item .col-md-6 {
+      width: 50%; /* 2枚表示のため50%ずつ */
+    }
+  
+    .carousel-inner {
+      height: 600px; /* 高さを設定 */
+    }
+  }
+
+/* 案内の見出し調整 */
+.text1-center {
+    width: 100%;  
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* 折り畳み表示の調整 */
+.accordion-body {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.4s ease;
+    font-size: 20px; 
+    line-height: 2.5;
+}
+
+.accordion-collapse.collapse.show .accordion-body {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.accordion-header {
+    background-color:#FFC7AF ;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.accordion-collapse.show {
+    background-color: #FFEFD5; /* ここで希望する背景色を指定 */
+    transition: background-color 0.3s ease; /* 背景色の変更にアニメーションを追加 */
+}
+
+.accordion-header .accordion-button {
+    background-color: transparent; 
+    border: none; 
+}
+
+.accordion-body li {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.accordion-body li.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Signature Foodスタイル調整 */
+.uniform-img {
+    width: 600px; 
+    height: 200px; 
+    object-fit: cover; 
+    margin-right: 50px;
+    flex-shrink: 0; 
+}
+
+/* タイトルの調整 */
+h3 {
+    font-size: 1.8rem; 
+    font-weight: bold; 
+    margin-bottom: 20px;
+    color: #444; 
+}
+
+/* 紹介の写真調整 */
+.food-item {
+    display: flex; 
+    align-items: center;
+    margin-bottom: 20px; 
+    gap: 20px;           
+}
+
+/* 紹介の文字調整 */
+.food-item p {
+    margin: 0;         
+    font-size: 1.5rem;   
+    line-height: 1.6;   
+    color: #333; 
+    align-self: flex-start;
+    max-width: 700px;
+}
+
+/* アニメーション設定 */
+.fade-in {
+    opacity: 1;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 連絡の背景色、文字色調整 */
+.address-section {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+/* 連絡の位置調整 */
+.address-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+}
+
+/* 連絡の文字調整 */
+.address-text {
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 50px;  
+}
+
+/* 連絡の写真調整 */
+.address-image {
+    max-width: 630px;
+    width: 100%;
+}
+
+/* 店舗一覧 */
+h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 店舗一覧の位置調整 */
+.circle-gallery {
+    display: flex;
+    justify-content: center;
+}
+
+/* 店舗一覧の写真を円形に表示 */
+.circle-gallery img {
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; 
+}
+
+.info {
+    display: flex;
+    align-items: center; /* 縦方向の中央揃え */
+    justify-content: center; /* 横方向の中央揃え */
+    gap: 5px; /* アイコンとテキストの間隔 */
+}
+
+.info i {
+    font-size: 18px; /* アイコンのサイズ */
+}
+  
+.info p {
+    margin: 0; /* 余白をリセット */
+    font-size: 18px; /* テキストサイズ */
+}
+
+/* 写真大きさ調整 */
+.circle1 circle2, .circle3, .circle4 {
+    width: 100px;
+    height: 100px;
+}
+
+/* フッターの調整 */
+.footer-links {
+    padding: 20px 0;
+    text-align: center; 
+    line-height: 2.5;
+}
+
+.footer-links a {
+    color: black;
+    text-decoration: none;
+}
+
+.uniform-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.store-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.address-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.address-section .address-text {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+}
+
+.address-section img {
+    flex: 1 1 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .uniform-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .address-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .address-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .food-item {
+        display: flex; /* Flexboxを有効化 */
+    flex-direction: column !important; /* 縦並び */
+    align-items: center; /* 子要素を水平方向に中央揃え */
+    justify-content: center; /* 子要素を垂直方向に中央揃え（必要に応じて） */
+    text-align: center; /* テキスト要素を中央揃え */
+    }
+
+    .uniform-img {
+        display: block; /* 画像をブロック要素として扱う */
+    margin: 0 auto; /* 左右の余白を自動調整して中央揃え */
+    max-width: 100%; /* 親要素の幅を超えないようにする */
+    height: auto; /* 縦横比を保つ */ 
+    }
+
+    .food-item p {
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    body .circle-gallery {
+        display: none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    body h4.fade-in {
+        display: none !important;
+    }
+}
+
+/* 初期状態ではメニューを隠す */
+@media (max-width: 576px) {
+.navbar-collapse {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease-out;
+}
+
+/* 展開時のアニメーション */
+.navbar-collapse.show {
+    max-height: 500px; /* 最大高さを適当に設定（項目数に応じて調整） */
+}
+
+/* メニュー項目のアニメーション */
+.navbar-nav .nav-item {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* メニューが展開されるときに項目が表示される */
+.navbar-collapse.show .navbar-nav .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+.accordion-button:active,
+.accordion-button:focus {
+    background-color: transparent !important;  /* クリックやフォーカス時の背景色を透明に */
+    box-shadow: none !important;  /* クリック時の青い枠線を削除 */
+    border-color: transparent !important;  /* 枠線を透明に */
+}
+
+/* アクティブ時、フォーカス時の文字色を変更しない */
+.accordion-button:active,
+.accordion-button:focus,
+.accordion-button:focus-visible {
+    color: inherit !important; /* 文字色を親要素の色に保持 */
+    text-decoration: none !important;  /* 文字の下線を削除 */
+}
+
+/* アコーディオンアイテムの枠線を消す */
+.accordion-item {
+    border: none !important; /* 枠線を消す */
+  }
+  
+  /* アコーディオンボディの背景を透明にする */
+  .accordion-body {
+    background-color: transparent !important; /* 背景色を透明にする */
+  }
+  
+  /* アコーディオンボタンの枠線を消す */
+  .accordion-button {
+    border: none !important; /* ボタン周りの枠線を消す */
+  }
+  
+  /* 展開時のアコーディオンの枠線を消す */
+  .accordion-collapse {
+    border: none !important; /* アコーディオンの内容部分の枠線を消す */
+  }
